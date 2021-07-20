@@ -4,6 +4,10 @@ class Card
         @face_up = false  
     end
 
+    def mark 
+        @mark 
+    end
+    
     def face_up?
         @face_up
     end
