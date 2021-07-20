@@ -17,7 +17,11 @@ class Card
     end
 
     def display
-        @mark if face_up? 
+        if face_up? 
+            @mark 
+        else 
+            '_'
+        end
     end
 
     def to_s
