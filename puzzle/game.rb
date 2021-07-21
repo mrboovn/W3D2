@@ -23,6 +23,7 @@ class Game
         if @previous_guess.empty?
             @previous_guess = position 
             @board.reveal(position)
+            @board.render
         else 
             card1 = @board.reveal(position)
             card2 = @board.reveal(@previous_guess)
@@ -30,7 +31,10 @@ class Game
                 card1.hide 
                 card2.hide 
                 @previous_guess = []
+            else  
+                @previous_guess = []
             end
+            @board.render 
         end
     end
 end

@@ -62,7 +62,6 @@ class Board
     def reveal(guessed_pos)
         row,col = guessed_pos
         @board[row][col].reveal
-        self.render
         @board[row][col]
     
     end

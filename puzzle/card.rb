@@ -7,7 +7,7 @@ class Card
     def mark 
         @mark 
     end
-    
+
     def face_up?
         @face_up
     end
@@ -32,11 +32,7 @@ class Card
     end
 
     def ==(card)
-        if self.mark == card.mark 
-            return true 
-        else  
-            return false 
-        end
+        self.mark == card.mark 
     end
 
 end
