@@ -2,8 +2,9 @@ require_relative 'card'
 require_relative 'board'
 
 class Game 
-    def initialize
-        @board = Board.new()
+    def initialize(size)
+        @size = size 
+        @board = Board.new(@size)
         @board.populate
         @previous_guess = []
         play
@@ -17,6 +18,8 @@ class Game
             response.each_with_index {|ele,index| response[index] = ele.to_i}
             make_guess(response)
         end
+
+        p "You win!"
     end
 
     def make_guess(position)
@@ -27,15 +30,21 @@ class Game
         else 
             card1 = @board.reveal(position)
             card2 = @board.reveal(@previous_guess)
+            @board.render 
             if !(card1 == card2)
                 card1.hide 
                 card2.hide 
                 @previous_guess = []
+                puts "Try again"
             else  
                 @previous_guess = []
             end
-            @board.render 
+
+            sleep(2)
+            system("cls")
         end
+
+        
     end
 end
 
